@@ -6,19 +6,24 @@ public class Friends {
 	private int friendRel;
 	private int personId;
 	private int myFriend;
-	private Date dateOfFriendship;
+	private int dateOfFriendship;
 	private String desc;
 
 	public Friends() {
 
 	}
 
-	public Friends(int friendRel, int personId, int myFriend, Date dateOfFriendship, String desc) {
+	public Friends(int friendRel, int personId, int myFriend, int dateOfFriendship, String desc) {
 		this.friendRel = friendRel;
 		this.personId = personId;
 		this.myFriend = myFriend;
 		this.dateOfFriendship = dateOfFriendship;
 		this.desc = desc;
+	}
+
+	@Override
+	public String toString() {
+		return friendRel + "," + personId + "," + myFriend + "," + dateOfFriendship + "," + desc;
 	}
 
 	public int getFriendRel() {
@@ -45,11 +50,11 @@ public class Friends {
 		this.myFriend = myFriend;
 	}
 
-	public Date getDateOfFriendship() {
+	public int getDateOfFriendship() {
 		return dateOfFriendship;
 	}
 
-	public void setDateOfFriendship(Date dateOfFriendship) {
+	public void setDateOfFriendship(int dateOfFriendship) {
 		this.dateOfFriendship = dateOfFriendship;
 	}
 

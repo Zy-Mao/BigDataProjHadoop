@@ -7,18 +7,23 @@ public class AccessLog {
 	private int byWho;
 	private int whatPage;
 	private String typeOfAccess;
-	private Date accessTime;
+	private int accessTime;
 
 	public AccessLog() {
 
 	}
 
-	public AccessLog(int accessId, int byWho, int whatPage, String typeOfAccess, Date accessTime) {
+	public AccessLog(int accessId, int byWho, int whatPage, String typeOfAccess, int accessTime) {
 		AccessId = accessId;
 		this.byWho = byWho;
 		this.whatPage = whatPage;
 		this.typeOfAccess = typeOfAccess;
 		this.accessTime = accessTime;
+	}
+
+	@Override
+	public String toString() {
+		return AccessId + "," + byWho + "," + whatPage + "," + typeOfAccess + "," + accessTime;
 	}
 
 	public int getAccessId() {
@@ -53,11 +58,11 @@ public class AccessLog {
 		this.typeOfAccess = typeOfAccess;
 	}
 
-	public Date getAccessTime() {
+	public int getAccessTime() {
 		return accessTime;
 	}
 
-	public void setAccessTime(Date accessTime) {
+	public void setAccessTime(int accessTime) {
 		this.accessTime = accessTime;
 	}
 }

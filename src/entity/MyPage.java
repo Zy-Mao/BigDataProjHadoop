@@ -19,6 +19,11 @@ public class MyPage {
 		this.hobby = hobby;
 	}
 
+	@Override
+	public String toString() {
+		return id + "," + name + "," + nationality + "," + countryCode + "," + hobby;
+	}
+
 	public int getId() {
 		return id;
 	}
