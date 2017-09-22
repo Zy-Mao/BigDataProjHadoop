@@ -1,9 +1,7 @@
 package entity;
 
-import java.util.Date;
-
 public class AccessLog {
-	private int AccessId;
+	private int accessId;
 	private int byWho;
 	private int whatPage;
 	private String typeOfAccess;
@@ -13,8 +11,19 @@ public class AccessLog {
 
 	}
 
+	public AccessLog(String string) {
+		String[] strings= string.split(",");
+		if (strings.length == 5) {
+			this.accessId = Integer.parseInt(strings[0]);
+			this.byWho = Integer.parseInt(strings[1]);
+			this.whatPage = Integer.parseInt(strings[2]);
+			this.typeOfAccess = strings[3];
+			this.accessTime = Integer.parseInt(strings[4]);
+		}
+	}
+
 	public AccessLog(int accessId, int byWho, int whatPage, String typeOfAccess, int accessTime) {
-		AccessId = accessId;
+		this.accessId = accessId;
 		this.byWho = byWho;
 		this.whatPage = whatPage;
 		this.typeOfAccess = typeOfAccess;
@@ -23,15 +32,15 @@ public class AccessLog {
 
 	@Override
 	public String toString() {
-		return AccessId + "," + byWho + "," + whatPage + "," + typeOfAccess + "," + accessTime;
+		return accessId + "," + byWho + "," + whatPage + "," + typeOfAccess + "," + accessTime;
 	}
 
 	public int getAccessId() {
-		return AccessId;
+		return accessId;
 	}
 
 	public void setAccessId(int accessId) {
-		AccessId = accessId;
+		accessId = accessId;
 	}
 
 	public int getByWho() {

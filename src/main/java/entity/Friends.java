@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Date;
-
 public class Friends {
 	private int friendRel;
 	private int personId;
@@ -11,6 +9,17 @@ public class Friends {
 
 	public Friends() {
 
+	}
+
+	public Friends(String string) {
+		String[] strings= string.split(",");
+		if (strings.length == 5) {
+			this.friendRel = Integer.parseInt(strings[0]);
+			this.personId = Integer.parseInt(strings[1]);
+			this.myFriend = Integer.parseInt(strings[2]);
+			this.dateOfFriendship = Integer.parseInt(strings[3]);
+			this.desc = strings[4];
+		}
 	}
 
 	public Friends(int friendRel, int personId, int myFriend, int dateOfFriendship, String desc) {
