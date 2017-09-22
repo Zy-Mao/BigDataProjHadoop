@@ -8,7 +8,17 @@ public class MyPage {
 	private String hobby;
 
 	public MyPage() {
+	}
 
+	public MyPage(String string) {
+		String[] strings= string.split(",");
+		if (strings.length == 5) {
+			this.id = Integer.parseInt(strings[0]);
+			this.name = strings[1];
+			this.nationality = strings[2];
+			this.countryCode = Integer.parseInt(strings[3]);
+			this.hobby = strings[4];
+		}
 	}
 
 	public MyPage(int id, String name, String nationality, int countryCode, String hobby) {
