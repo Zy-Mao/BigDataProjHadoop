@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class DataOperator {
+	// The nationality of MyPage entities would generated from this array.
 	private static String[] COUNTRY_POOL =
 			{"Argentina", "Austria", "Australia", "Canada", "Switzerland", "China", "Germany",
 					"Spain", "Finland", "France", "Iceland", "India", "Italy", "Japan", "Monaco",
@@ -41,6 +42,7 @@ public class DataOperator {
 			friends.setDateOfFriendship(generateRandomInt(1, 1000000));
 			friends.setDesc(generateRandomString(generateRandomInt(20, 50)));
 			friendsList.add(friends);
+			//Write the data into the file part by part.
 			if (i % 1000000 == 0) {
 				outputDataIntoFiles(friendsList, "Friends.csv");
 				friendsList = new ArrayList<>();
@@ -62,6 +64,7 @@ public class DataOperator {
 			accessLog.setTypeOfAccess(generateRandomString(generateRandomInt(20, 50)));
 			accessLog.setAccessTime(generateRandomInt(1, 1000000));
 			accessLogList.add(accessLog);
+			//Write the data into the file part by part.
 			if (i % 1000000 == 0) {
 				outputDataIntoFiles(accessLogList, "AccessLog.csv");
 				accessLogList = new ArrayList<>();
@@ -77,6 +80,7 @@ public class DataOperator {
 		return new Random().nextInt(max - min + 1) + min;
 	}
 
+	// generate random string in specific length.
 	private String generateRandomString(int length) {
 		StringBuilder strBuilder = new StringBuilder();
 		for (int i = 0; i < length; i++) {
@@ -85,6 +89,7 @@ public class DataOperator {
 		return strBuilder.toString();
 	}
 
+	// Output the data in the input ArrayList into the file, line by line.
 	private void outputDataIntoFiles(ArrayList arrayList, String fileName) {
 		FileWriter fileWriter;
 		BufferedWriter bufferedWriter;

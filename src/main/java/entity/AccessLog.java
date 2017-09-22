@@ -11,6 +11,7 @@ public class AccessLog {
 
 	}
 
+	// Construct the instance according to input string.
 	public AccessLog(String string) {
 		String[] strings= string.split(",");
 		if (strings.length == 5) {

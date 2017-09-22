@@ -10,6 +10,7 @@ public class MyPage {
 	public MyPage() {
 	}
 
+	// Construct the instance according to input string.
 	public MyPage(String string) {
 		String[] strings= string.split(",");
 		if (strings.length == 5) {

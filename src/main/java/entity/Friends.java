@@ -11,6 +11,7 @@ public class Friends {
 
 	}
 
+	// Construct the instance according to input string.
 	public Friends(String string) {
 		String[] strings= string.split(",");
 		if (strings.length == 5) {
