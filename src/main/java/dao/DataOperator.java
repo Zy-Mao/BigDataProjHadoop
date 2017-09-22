@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class DataOperator {
-//	private static String[] descDict = {"Friends", "Family", "Colleague", "Unknown"};
+	private static String[] COUNTRY_POOL =
+			{"Argentina", "Austria", "Australia", "Canada", "Switzerland", "China", "Germany",
+					"Spain", "Finland", "France", "Iceland", "India", "Italy", "Japan", "Monaco",
+					"Russia", "Singapore", "Thailand", "Turkey", "Ukraine", "United_States",
+					"Venezuela", "Vietnam", "South Africa", "Zambia", "Zimbabwe"};
 
-	public ArrayList<MyPage> generateMyPageList(){
+	public ArrayList<MyPage> generateMyPageList() {
 		ArrayList<MyPage> myPageList = new ArrayList<>();
 		for (int i = 1; i <= 100000; i++) {
 			MyPage myPage = new MyPage();
 			myPage.setId(i);
 			myPage.setName(generateRandomString(generateRandomInt(10, 20)));
-			myPage.setNationality(generateRandomString(generateRandomInt(10, 20)));
+			myPage.setNationality(COUNTRY_POOL[generateRandomInt(0, COUNTRY_POOL.length - 1)]);
 			myPage.setCountryCode(generateRandomInt(1, 10));
 			myPage.setHobby(generateRandomString(generateRandomInt(10, 20)));
 			myPageList.add(myPage);
@@ -27,9 +31,9 @@ public class DataOperator {
 		return myPageList;
 	}
 
-	public ArrayList<Friends> generateFriendsList(){
+	public ArrayList<Friends> generateFriendsList() {
 		ArrayList<Friends> friendsList = new ArrayList<>();
-		for (int i = 1; i <=50000000; i++) {
+		for (int i = 1; i <= 50000000; i++) {
 			Friends friends = new Friends();
 			friends.setFriendRel(i);
 			friends.setPersonId(generateRandomInt(1, 100000));
@@ -48,7 +52,7 @@ public class DataOperator {
 		return friendsList;
 	}
 
-	public ArrayList<AccessLog> generateAccessLogList(){
+	public ArrayList<AccessLog> generateAccessLogList() {
 		ArrayList<AccessLog> accessLogList = new ArrayList<>();
 		for (int i = 1; i <= 10000000; i++) {
 			AccessLog accessLog = new AccessLog();
@@ -69,7 +73,7 @@ public class DataOperator {
 		return accessLogList;
 	}
 
-	private int generateRandomInt(int min, int max){
+	private int generateRandomInt(int min, int max) {
 		return new Random().nextInt(max - min + 1) + min;
 	}
 
@@ -82,8 +86,8 @@ public class DataOperator {
 	}
 
 	private void outputDataIntoFiles(ArrayList arrayList, String fileName) {
-		FileWriter fileWriter = null;
-		BufferedWriter bufferedWriter = null;
+		FileWriter fileWriter;
+		BufferedWriter bufferedWriter;
 		PrintWriter printWriter = null;
 		StringBuilder strBuilder = new StringBuilder();
 
