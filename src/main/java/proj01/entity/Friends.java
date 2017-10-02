@@ -1,4 +1,4 @@
-package entity;
+package proj01.entity;
 
 public class Friends {
 	private int friendRel;

@@ -1,10 +1,6 @@
-import dao.DataOperator;
-import entity.AccessLog;
-import entity.Friends;
-import entity.MyPage;
+package proj01;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import proj01.dao.DataOperator;
 
 public class Main {
 

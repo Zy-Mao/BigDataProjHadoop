@@ -1,4 +1,4 @@
-package tasks;
+package proj01.tasks;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,6 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.mapred.FileOutputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
-import org.apache.hadoop.mapreduce.lib.output.*;
 
 public class ATask {
 	public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {

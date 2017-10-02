@@ -1,8 +1,8 @@
-package dao;
+package proj01.dao;
 
-import entity.AccessLog;
-import entity.Friends;
-import entity.MyPage;
+import proj01.entity.AccessLog;
+import proj01.entity.Friends;
+import proj01.entity.MyPage;
 
 import java.io.*;
 import java.util.ArrayList;

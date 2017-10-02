@@ -1,4 +1,4 @@
-package entity;
+package proj01.entity;
 
 public class AccessLog {
 	private int accessId;
