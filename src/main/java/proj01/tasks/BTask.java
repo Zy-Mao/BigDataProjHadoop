@@ -1,5 +1,6 @@
 package proj01.tasks;
 
+import proj01.entity.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -62,34 +63,5 @@ public class BTask {
 		FileOutputFormat.setOutputPath(conf, new Path(args[1] + "/" + timeStamp));
 
 		JobClient.runJob(conf);
-	}
-
-	public static class MyPage {
-		private int id;
-		private String name;
-		private String nationality;
-		private int countryCode;
-		private String hobby;
-
-		// Construct the instance according to input string.
-		public MyPage(String string) {
-			String[] strings = string.split(",");
-			if (strings.length == 5) {
-				this.id = Integer.parseInt(strings[0]);
-				this.name = strings[1];
-				this.nationality = strings[2];
-				this.countryCode = Integer.parseInt(strings[3]);
-				this.hobby = strings[4];
-			}
-		}
-
-		@Override
-		public String toString() {
-			return id + "," + name + "," + nationality + "," + countryCode + "," + hobby;
-		}
-
-		public int getCountryCode() {
-			return countryCode;
-		}
 	}
 }

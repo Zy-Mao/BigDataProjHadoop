@@ -1,5 +1,6 @@
 package proj01.tasks;
 
+import proj01.entity.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -85,39 +86,4 @@ public class ETask {
 		FileOutputFormat.setOutputPath(job, new Path(args[1] + "/"+ timeStamp));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
-
-	public static class AccessLog {
-		private int accessId;
-		private int byWho;
-		private int whatPage;
-		private String typeOfAccess;
-		private int accessTime;
-
-		// Construct the instance according to input string.
-		public AccessLog(String string) {
-			String[] strings= string.split(",");
-			if (strings.length == 5) {
-				this.accessId = Integer.parseInt(strings[0]);
-				this.byWho = Integer.parseInt(strings[1]);
-				this.whatPage = Integer.parseInt(strings[2]);
-				this.typeOfAccess = strings[3];
-				this.accessTime = Integer.parseInt(strings[4]);
-			}
-		}
-
-		@Override
-		public String toString() {
-			return accessId + "," + byWho + "," + whatPage + "," + typeOfAccess + "," + accessTime;
-		}
-
-		public int getByWho() {
-			return byWho;
-		}
-
-		public int getWhatPage() {
-			return whatPage;
-		}
-
-	}
-
 }

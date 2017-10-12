@@ -1,5 +1,6 @@
 package proj01.tasks;
 
+import proj01.entity.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -109,71 +110,5 @@ public class FTask {
 				.format(Calendar.getInstance().getTime());
 		FileOutputFormat.setOutputPath(job, new Path(args[2] + "/" + timeStamp));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
-	}
-
-	public static class AccessLog {
-		private int accessId;
-		private int byWho;
-		private int whatPage;
-		private String typeOfAccess;
-		private int accessTime;
-
-		// Construct the instance according to input string.
-		public AccessLog(String string) {
-			String[] strings= string.split(",");
-			if (strings.length == 5) {
-				this.accessId = Integer.parseInt(strings[0]);
-				this.byWho = Integer.parseInt(strings[1]);
-				this.whatPage = Integer.parseInt(strings[2]);
-				this.typeOfAccess = strings[3];
-				this.accessTime = Integer.parseInt(strings[4]);
-			}
-		}
-
-		@Override
-		public String toString() {
-			return accessId + "," + byWho + "," + whatPage + "," + typeOfAccess + "," + accessTime;
-		}
-
-		public int getByWho() {
-			return byWho;
-		}
-
-		public int getWhatPage() {
-			return whatPage;
-		}
-	}
-
-	public static class Friends {
-		private int friendRel;
-		private int personId;
-		private int myFriend;
-		private int dateOfFriendship;
-		private String desc;
-
-		// Construct the instance according to input string.
-		public Friends(String string) {
-			String[] strings= string.split(",");
-			if (strings.length == 5) {
-				this.friendRel = Integer.parseInt(strings[0]);
-				this.personId = Integer.parseInt(strings[1]);
-				this.myFriend = Integer.parseInt(strings[2]);
-				this.dateOfFriendship = Integer.parseInt(strings[3]);
-				this.desc = strings[4];
-			}
-		}
-
-		@Override
-		public String toString() {
-			return friendRel + "," + personId + "," + myFriend + "," + dateOfFriendship + "," + desc;
-		}
-
-		public int getPersonId() {
-			return personId;
-		}
-
-		public int getMyFriend() {
-			return myFriend;
-		}
 	}
 }

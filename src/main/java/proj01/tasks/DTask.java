@@ -1,5 +1,6 @@
 package proj01.tasks;
 
+import proj01.entity.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -94,67 +95,5 @@ public class DTask {
 				.format(Calendar.getInstance().getTime());
 		FileOutputFormat.setOutputPath(job, new Path(args[2] + "/" + timeStamp));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
-	}
-
-	public static class Friends {
-		private int friendRel;
-		private int personId;
-		private int myFriend;
-		private int dateOfFriendship;
-		private String desc;
-
-		// Construct the instance according to input string.
-		public Friends(String string) {
-			String[] strings= string.split(",");
-			if (strings.length == 5) {
-				this.friendRel = Integer.parseInt(strings[0]);
-				this.personId = Integer.parseInt(strings[1]);
-				this.myFriend = Integer.parseInt(strings[2]);
-				this.dateOfFriendship = Integer.parseInt(strings[3]);
-				this.desc = strings[4];
-			}
-		}
-
-		@Override
-		public String toString() {
-			return friendRel + "," + personId + "," + myFriend + "," + dateOfFriendship + "," + desc;
-		}
-
-		public int getMyFriend() {
-			return myFriend;
-		}
-	}
-
-	public static class MyPage {
-		private int id;
-		private String name;
-		private String nationality;
-		private int countryCode;
-		private String hobby;
-
-		// Construct the instance according to input string.
-		public MyPage(String string) {
-			String[] strings= string.split(",");
-			if (strings.length == 5) {
-				this.id = Integer.parseInt(strings[0]);
-				this.name = strings[1];
-				this.nationality = strings[2];
-				this.countryCode = Integer.parseInt(strings[3]);
-				this.hobby = strings[4];
-			}
-		}
-
-		@Override
-		public String toString() {
-			return id + "," + name + "," + nationality + "," + countryCode + "," + hobby;
-		}
-
-		public int getId() {
-			return id;
-		}
-
-		public String getName() {
-			return name;
-		}
 	}
 }
