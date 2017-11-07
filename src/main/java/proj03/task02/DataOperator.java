@@ -1,12 +1,39 @@
-package proj02.task01;
+package proj03.task02;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class DataOperator {
-	private static String POINT_FILE_NAME = "Point.csv";
-	private static String RECTANGLE_FILE_NAME = "Rectangle.csv";
+	private static String POINT_FILE_NAME = "Point.data";
+
+	public class Point {
+		private int x;
+		private int y;
+
+		public Point() {}
+
+		@Override
+		public String toString() {
+			return x + "," + y;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public void setX(int x) {
+			this.x = x;
+		}
+
+		public int getY() {
+			return y;
+		}
+
+		public void setY(int y) {
+			this.y = y;
+		}
+	}
 
 	private void generatePoint() {
 		int count = 0;
@@ -18,7 +45,7 @@ public class DataOperator {
 			point.setY(generateRandomInt(1, 10000));
 			pointArrayList.add(point);
 
-			if (count % 100000 == 0) {
+			if (count % 500000 == 0) {
 				outputDataIntoFiles(pointArrayList, POINT_FILE_NAME);
 				pointArrayList = new ArrayList<>();
 				System.out.println("Generated and output " + count + " Point records.");
@@ -66,5 +93,8 @@ public class DataOperator {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
+	}
+	public static void main(String[] args) throws Exception {
+		new DataOperator().generatePoint();
 	}
 }
